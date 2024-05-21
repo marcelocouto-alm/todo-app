@@ -57,6 +57,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove=".gitignore.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="DevExpress.Maui.CollectionView" Version="23.2.6" />
 		<PackageReference Include="DevExpress.Maui.DataGrid" Version="23.2.6" />
