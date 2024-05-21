@@ -1,0 +1,24 @@
+﻿# Arquivos de compilação e resultados de compilação
+/bin/
+/obj/
+/*.apk
+/*.ap_
+/*.aab
+/*.ipa
+/*.appx
+/*.msix
+/*.msixbundle
+/*.appxbundle
+/*.appxupload
+
+# Arquivos de configuração e ambiente
+*.user
+*.vscode/
+*.suo
+*.sln.docstates
+*.userprefs
+*.lock
+*.log
+**/.vs/
+**/bin/
+**/obj/
