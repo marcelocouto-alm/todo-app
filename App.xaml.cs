@@ -6,7 +6,16 @@ namespace ToDoApp
 {
     public partial class App : Application
     {
+        /// <summary>
+        /// Gets the current <see cref="App"/> instance in use
+        /// </summary>
+        public new static App Current => (App)Application.Current;
+
+        /// <summary>
+        /// Gets the <see cref="IServiceProvider"/> instance to resolve application services.
+        /// </summary>
         public IServiceProvider Services { get; }
+
         public CultureInfo Culture { get; private set; }
         public App()
         {
@@ -16,6 +25,7 @@ namespace ToDoApp
             InitializeComponent();
 
             Statics.Routing.RegisterRoute(typeof(MyTasksPage));
+
             MainPage = new AppShell();
         }
 
@@ -24,7 +34,7 @@ namespace ToDoApp
             var services = new ServiceCollection();
 
             // ViewModels
-            services.AddTransient<ToDoTaskViewModel>();
+            services.AddTransient<MyTasksViewModel>();
 
             return services.BuildServiceProvider();
         }

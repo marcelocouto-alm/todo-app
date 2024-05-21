@@ -1,12 +1,50 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToDoApp.View.MyTasksPage"
-             Title="MyTasksPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             x:Class="ToDoApp.View.MyTasksPage">
+
+    <Shell.TitleView>
+        <Grid
+        Margin="{x:OnPlatform Android='-20,0,0,0',iOS='0,0,0,0'}"
+        ColumnDefinitions="50,*,100"
+        HeightRequest="50">
+            <Label Grid.Column="1"
+                Text="Minhas tarefas"
+                FontSize="18"
+                Margin="{x:OnPlatform iOS='10,0,0,0', Default='0,0,0,0'}"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center" />
+        </Grid>
+    </Shell.TitleView>
+
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <Grid Padding="10,20" RowDefinitions="*, auto" HorizontalOptions="FillAndExpand">
+            <VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="0" Spacing="16" BindableLayout.ItemsSource="{Binding Tasks}">
+                    <BindableLayout.EmptyViewTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                    Grid.Row="0">
+                                <Label 
+                                    Text="sem tarefas cadastradas"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.EmptyViewTemplate>
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <RoundRectangle CornerRadius="8" Stroke="#D0D0DF"/>
+                                <VerticalStackLayout>
+                                    <Label Text="teste"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 </ContentPage>

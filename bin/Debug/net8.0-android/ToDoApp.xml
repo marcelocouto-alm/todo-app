@@ -4,6 +4,16 @@
         <name>ToDoApp</name>
     </assembly>
     <members>
+        <member name="P:ToDoApp.App.Current">
+            <summary>
+            Gets the current <see cref="T:ToDoApp.App"/> instance in use
+            </summary>
+        </member>
+        <member name="P:ToDoApp.App.Services">
+            <summary>
+            Gets the <see cref="T:System.IServiceProvider"/> instance to resolve application services.
+            </summary>
+        </member>
         <member name="T:ToDoApp.ViewModel.BaseViewModel">
             <inheritdoc/>
         </member>
