@@ -19,7 +19,8 @@
 
             <Button 
                 Grid.Row="1"
-                Text="Acessar tarefas"/>
+                Text="Acessar tarefas"
+                Clicked="MyTasks_Tapped"/>
         </Grid>
     </StackLayout>
 </ContentPage>

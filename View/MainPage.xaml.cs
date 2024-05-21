@@ -6,4 +6,9 @@ public partial class MainPage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private async void MyTasks_Tapped(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(MyTasksPage));
+    }
 }
