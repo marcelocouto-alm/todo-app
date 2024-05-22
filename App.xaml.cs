@@ -18,6 +18,8 @@ namespace ToDoApp
         /// </summary>
         public IServiceProvider Services { get; }
 
+        private LocalDbService _localDbService;
+
         public CultureInfo Culture { get; private set; }
         public App()
         {
@@ -30,7 +32,7 @@ namespace ToDoApp
             Statics.Routing.RegisterRoute(typeof (NewTaskPage));
             Statics.Routing.RegisterRoute(typeof(EditTaskPage));
 
-            //var taskService = new TaskService("todo_app.db");
+            _localDbService = new LocalDbService();
 
             MainPage = new AppShell();
         }
