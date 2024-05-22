@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace ToDoApp.ViewModel
+namespace ToDoApp.ViewModels
 {
     public partial class BaseViewModel : ObservableObject
     {

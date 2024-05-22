@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 using ToDoApp.View;
-using ToDoApp.ViewModel;
+using ToDoApp.ViewModels;
 
 namespace ToDoApp
 {
@@ -25,6 +25,7 @@ namespace ToDoApp
             InitializeComponent();
 
             Statics.Routing.RegisterRoute(typeof(MyTasksPage));
+            Statics.Routing.RegisterRoute(typeof (EditTaskPage));
 
             MainPage = new AppShell();
         }

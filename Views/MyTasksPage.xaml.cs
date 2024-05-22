@@ -1,4 +1,4 @@
-using ToDoApp.ViewModel;
+using ToDoApp.ViewModels;
 
 namespace ToDoApp.View;
 
@@ -13,9 +13,9 @@ public partial class MyTasksPage : ContentPage
 		BindingContext = ViewModel;
 	}
 
-    protected override async void OnAppearing()
-    {
-        base.OnAppearing();
-        await ViewModel.GetTasksAsync();
-    }
+	protected override async void OnAppearing()
+	{
+		base.OnAppearing();
+		await ViewModel.GetTasksAsync();
+	}
 }
