@@ -73,6 +73,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Entities\Enums\" />
+	  <Folder Include="NewFolder\" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -18,83 +18,85 @@
         </Grid>
     </Shell.TitleView>
 
-    <RefreshView>
-        <ScrollView VerticalScrollBarVisibility="Never">
-            <Grid Padding="10,20" RowDefinitions="auto, auto" HorizontalOptions="FillAndExpand" BackgroundColor="{x:DynamicResource White}">
-                <VerticalStackLayout>
-                    <VerticalStackLayout Grid.Row="0" Spacing="16" BindableLayout.ItemsSource="{Binding Tasks}">
-                        <BindableLayout.EmptyViewTemplate>
-                            <DataTemplate>
-                                <StackLayout
-                                    Grid.Row="0">
-                                    <Label 
-                                        Text="Não há tarefas cadastradas"
+    <ScrollView VerticalScrollBarVisibility="Never">
+        <Grid Padding="10,20" RowDefinitions="auto, auto" HorizontalOptions="FillAndExpand" BackgroundColor="{x:DynamicResource White}">
+            <VerticalStackLayout>
+                <VerticalStackLayout Grid.Row="0" Spacing="16" BindableLayout.ItemsSource="{Binding Tasks}">
+                    <BindableLayout.EmptyViewTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Grid.Row="0">
+                                <Label 
+                                    Text="Não há tarefas cadastradas"
+                                    TextColor="{x:DynamicResource Black}"
+                                    HorizontalOptions="Center"
+                                    HorizontalTextAlignment="Center"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.EmptyViewTemplate>
+
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate x:Name="TasksList">
+                            <Grid VerticalOptions="Center" HeightRequest="160">
+                                <RoundRectangle CornerRadius="8" Stroke="{x:DynamicResource Primary}" />
+                                <VerticalStackLayout Padding="16" Spacing="16">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <HorizontalStackLayout Grid.Column="0" Spacing="8">
+                                            <Label
+                                                Style="{DynamicResource SmallParagraph}"
+                                                VerticalTextAlignment="Center">
+                                                <Label.Triggers>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="0">
+                                                        <Setter Property="Text" Value="&#x274C;"/>
+                                                        <Setter Property="TextColor" Value="{x:DynamicResource Danger}"/>
+                                                    </DataTrigger>
+                                                    <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="1">
+                                                        <Setter Property="Text" Value="&#x2705;"/>
+                                                        <Setter Property="TextColor" Value="{x:DynamicResource Sucess}"/>
+                                                    </DataTrigger>
+                                                </Label.Triggers>
+                                            </Label>
+                                            <Label
+                                                WidthRequest="230"
+                                                Text="{Binding Title}"
+                                                Style="{x:DynamicResource SubHeadline}"
+                                                TextColor="{x:DynamicResource Black}"
+                                                VerticalTextAlignment="Center"
+                                                LineBreakMode="WordWrap"/>
+                                        </HorizontalStackLayout>
+                                        <HorizontalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="8">
+                                            <Label
+                                                Text="&#x270F;"
+                                                Style="{x:DynamicResource SubHeadline}"
+                                                TextColor="{x:DynamicResource Primary}"
+                                                Rotation="120">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="EditTask_Clicked" CommandParameter="{Binding Id}"/>
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </HorizontalStackLayout>
+                                    </Grid>
+
+                                    <Label
+                                        Text="{Binding Description}"
+                                        Style="{DynamicResource Paragraph}"
                                         TextColor="{x:DynamicResource Black}"
-                                        HorizontalOptions="Center"
-                                        HorizontalTextAlignment="Center"/>
-                                </StackLayout>
-                            </DataTemplate>
-                        </BindableLayout.EmptyViewTemplate>
-
-                        <BindableLayout.ItemTemplate>
-                            <DataTemplate x:Name="TasksList">
-                                <Grid VerticalOptions="Center" HeightRequest="160">
-                                    <RoundRectangle CornerRadius="8" Stroke="{x:DynamicResource Primary}" />
-                                    <VerticalStackLayout Padding="16" Spacing="16">
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="Auto" />
-                                            </Grid.ColumnDefinitions>
-                                            <HorizontalStackLayout Grid.Column="0" Spacing="8">
-                                                <Label
-                                                    Style="{DynamicResource SmallParagraph}"
-                                                    VerticalTextAlignment="Center">
-                                                    <Label.Triggers>
-                                                        <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="0">
-                                                            <Setter Property="Text" Value="&#x274C;"/>
-                                                            <Setter Property="TextColor" Value="{x:DynamicResource Danger}"/>
-                                                        </DataTrigger>
-                                                        <DataTrigger TargetType="Label" Binding="{Binding Status}" Value="1">
-                                                            <Setter Property="Text" Value="&#x2705;"/>
-                                                            <Setter Property="TextColor" Value="{x:DynamicResource Sucess}"/>
-                                                        </DataTrigger>
-                                                    </Label.Triggers>
-                                                </Label>
-                                                <Label
-                                                    WidthRequest="230"
-                                                    Text="{Binding Title}"
-                                                    Style="{x:DynamicResource SubHeadline}"
-                                                    TextColor="{x:DynamicResource Black}"
-                                                    VerticalTextAlignment="Center"
-                                                    LineBreakMode="WordWrap"/>
-                                            </HorizontalStackLayout>
-                                            <HorizontalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="8">
-                                                <Label 
-                                                    Text="&#x270F;"
-                                                    Style="{x:DynamicResource SubHeadline}"
-                                                    TextColor="{x:DynamicResource Primary}"
-                                                    Rotation="120"/>
-                                            </HorizontalStackLayout>
-                                        </Grid>
-
-                                        <Label
-                                            Text="{Binding Description}"
-                                            Style="{DynamicResource Paragraph}"
-                                            TextColor="{x:DynamicResource Black}"
-                                            Margin="0,8,0,0"/>
-                                    </VerticalStackLayout>
-                                </Grid>
-                            </DataTemplate>
-                        </BindableLayout.ItemTemplate>
-                    </VerticalStackLayout>
-                    <Button
-                        Text="Criar nova tarefa"
-                        Clicked="NewTask_Clicked"
-                        Margin="0,20,0,0"/>
+                                        Margin="0,8,0,0"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
                 </VerticalStackLayout>
-            </Grid>
-        </ScrollView>
-    </RefreshView>
+                <Button
+                    Text="Criar nova tarefa"
+                    Clicked="NewTask_Clicked"
+                    Margin="0,20,0,0"/>
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
 
 </ContentPage>

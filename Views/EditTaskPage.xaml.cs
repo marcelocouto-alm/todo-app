@@ -13,4 +13,10 @@ public partial class EditTaskPage : ContentPage
 		ViewModel = App.Current.Services.GetService<EditTaskViewModel>();
 		BindingContext = ViewModel;
 	}
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await ViewModel.GetTasksAsync();
+    }
 }

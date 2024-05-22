@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using ToDoApp.Managers;
 using ToDoApp.Service;
 using ToDoApp.View;
 using ToDoApp.ViewModels;
@@ -41,9 +42,13 @@ namespace ToDoApp
             // ViewModels
             services.AddTransient<MyTasksViewModel>();
             services.AddTransient<NewTaskViewModel>();
+            services.AddTransient<EditTaskViewModel>();
 
             // SQLite
             services.AddSingleton<LocalDbService>();
+
+            // Managers
+            services.AddSingleton<TaskManager>();
 
             return services.BuildServiceProvider();
         }
