@@ -20,6 +20,13 @@ namespace ToDoApp.ViewModels
             set { SetProperty(ref _description, value); }
         }
 
+        private bool _isCompleted;
+        public bool IsCompleted
+        {
+            get { return _isCompleted; }
+            set { SetProperty(ref _isCompleted, value); }
+        }
+
         private readonly LocalDbService _localDbService;
 
         public ICommand SaveCommand { get; }
@@ -36,7 +43,7 @@ namespace ToDoApp.ViewModels
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Description))
                 return;
 
-            var newTask = new ToDoTask { Title = Title, Description = Description, Status = 0 };
+            var newTask = new ToDoTask { Title = Title, Description = Description, Status = IsCompleted ? 1 : 0 };
 
             await _localDbService.CreateTask(newTask);
 

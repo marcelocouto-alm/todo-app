@@ -1,13 +1,48 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ToDoApp.View.NewTaskPage"
-             Title="NewTaskPage">
-    <VerticalStackLayout>
-        <StackLayout Padding="20">
-            <Entry Placeholder="Título" Text="{Binding Title}" />
-            <Entry Placeholder="Descrição" Text="{Binding Description}" />
-            <Button Text="Salvar" Command="{Binding SaveCommand}" />
+             Shell.BackgroundColor="{x:DynamicResource Primary}"
+             x:Class="ToDoApp.View.NewTaskPage">
+
+    <Shell.TitleView>
+        <Grid
+            Margin="{x:OnPlatform Android='-20,0,0,0',iOS='0,0,0,0'}"
+            ColumnDefinitions="50,*,100"
+            HeightRequest="50">
+            <Label Grid.Column="1"
+                Text="Criar Tarefa"
+                FontSize="18"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Margin="{x:OnPlatform iOS='10,0,0,0', Default='0,0,0,0'}"/>
+        </Grid>
+    </Shell.TitleView>
+    
+    <VerticalStackLayout BackgroundColor="{x:DynamicResource Primary}" >
+        <StackLayout Padding="20" Spacing="18">
+            <Entry
+                Text="{Binding Title}"
+                MaxLength="20"
+                Placeholder="Título"
+                PlaceholderColor="{x:DynamicResource Gray200}"/>
+            <Entry
+                Text="{Binding Description}"
+                MaxLength="60"
+                Placeholder="Descrição"
+                PlaceholderColor="{x:DynamicResource Gray200}"/>
+
+            <HorizontalStackLayout>
+                <Label 
+                    Text="Concluída"
+                    TextColor="{x:DynamicResource Gray200}"
+                    VerticalTextAlignment="Center"/>
+                <CheckBox
+                    IsChecked="{Binding IsCompleted}" />
+            </HorizontalStackLayout>
+            
+            <Button 
+                Text="Salvar" 
+                Command="{Binding SaveCommand}" />
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>
