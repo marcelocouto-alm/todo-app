@@ -20,6 +20,7 @@
 
             <Button 
                 Grid.Row="1"
+                TextColor="{x:DynamicResource Black}"
                 BackgroundColor="{x:DynamicResource White}"
                 Text="Acessar tarefas"
                 Clicked="MyTasks_Clicked"/>

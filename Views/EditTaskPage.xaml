@@ -21,29 +21,32 @@
     <VerticalStackLayout BackgroundColor="{x:DynamicResource Primary}" >
         <StackLayout Padding="20" Spacing="18">
             <Entry
-            Text="{Binding Title}"
-            MaxLength="20"
-            Placeholder="Título"
-            PlaceholderColor="{x:DynamicResource Gray200}"/>
+                Text="{Binding Title}"
+                TextColor="{x:DynamicResource Gray200}"
+                MaxLength="20"
+                Placeholder="Título"
+                PlaceholderColor="{x:DynamicResource Gray200}"/>
             <Entry
-            Text="{Binding Description}"
-            MaxLength="60"
-            Placeholder="Descrição"
-            PlaceholderColor="{x:DynamicResource Gray200}"/>
+                Text="{Binding Description}"
+                TextColor="{x:DynamicResource Gray200}"
+                MaxLength="60"
+                Placeholder="Descrição"
+                PlaceholderColor="{x:DynamicResource Gray200}"/>
 
             <HorizontalStackLayout>
                 <Label 
-                Text="Concluída"
-                TextColor="{x:DynamicResource White}"
-                VerticalTextAlignment="Center"/>
+                    Text="Concluída"
+                    TextColor="{x:DynamicResource White}"
+                    VerticalTextAlignment="Center"/>
                 <CheckBox
-                IsChecked="{Binding IsCompleted}"/>
+                    IsChecked="{Binding IsCompleted}"/>
             </HorizontalStackLayout>
 
             <Button 
                 Text="Salvar" 
                 Command="{Binding EditTaskCommand}"
-                TextColor="{x:DynamicResource White}"/>
+                TextColor="{x:DynamicResource Black}"
+                BackgroundColor="{x:DynamicResource White}"/>
 
             <Button 
                 Text="Excluir"

@@ -22,11 +22,13 @@
         <StackLayout Padding="20" Spacing="18">
             <Entry
                 Text="{Binding Title}"
+                TextColor="{x:DynamicResource Gray200}"
                 MaxLength="20"
                 Placeholder="Título"
                 PlaceholderColor="{x:DynamicResource Gray200}"/>
             <Entry
                 Text="{Binding Description}"
+                TextColor="{x:DynamicResource Gray200}"
                 MaxLength="60"
                 Placeholder="Descrição"
                 PlaceholderColor="{x:DynamicResource Gray200}"/>
@@ -42,6 +44,8 @@
             
             <Button 
                 Text="Salvar" 
+                TextColor="{x:DynamicResource Black}"
+                BackgroundColor="{x:DynamicResource White}"
                 Command="{Binding SaveCommand}" />
         </StackLayout>
     </VerticalStackLayout>
