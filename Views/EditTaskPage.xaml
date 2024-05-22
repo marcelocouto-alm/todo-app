@@ -34,15 +34,22 @@
             <HorizontalStackLayout>
                 <Label 
                 Text="Concluída"
-                TextColor="{x:DynamicResource Gray200}"
+                TextColor="{x:DynamicResource White}"
                 VerticalTextAlignment="Center"/>
                 <CheckBox
-                IsChecked="{Binding IsCompleted}" />
+                IsChecked="{Binding IsCompleted}"/>
             </HorizontalStackLayout>
 
             <Button 
-            Text="Salvar" 
-            Command="{Binding EditTaskCommand}" />
+                Text="Salvar" 
+                Command="{Binding EditTaskCommand}"
+                TextColor="{x:DynamicResource White}"/>
+
+            <Button 
+                Text="Excluir"
+                Command="{Binding DeleteTaskCommand}"
+                BackgroundColor="{x:DynamicResource Danger}"
+                TextColor="{x:DynamicResource White}"/>
         </StackLayout>
     </VerticalStackLayout>
 </ContentPage>

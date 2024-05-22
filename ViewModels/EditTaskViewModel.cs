@@ -42,6 +42,8 @@ namespace ToDoApp.ViewModels
         private readonly TaskManager _taskManager;
 
         public ICommand EditTaskCommand { get; }
+        public ICommand DeleteTaskCommand { get; }
+
 
         public EditTaskViewModel(LocalDbService localDbService, TaskManager taskManager)
         {
@@ -49,6 +51,7 @@ namespace ToDoApp.ViewModels
             _taskManager = taskManager;
 
             EditTaskCommand = new Command(EditTask);
+            DeleteTaskCommand = new Command(DeleteTask);
         }
 
         public async Task GetTasksAsync()
@@ -67,9 +70,18 @@ namespace ToDoApp.ViewModels
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Description))
                 return;
 
-            var newTask = new ToDoTask {Id = IdTask, Title = Title, Description = Description, Status = IsCompleted ? 1 : 0 };
+            var editTask = new ToDoTask {Id = IdTask, Title = Title, Description = Description, Status = IsCompleted ? 1 : 0, IsActiveTask = 1 };
 
-            await _localDbService.UpdateTask(newTask);
+            await _localDbService.UpdateTask(editTask);
+
+            await Shell.Current.GoToAsync("..");
+        }
+
+        private async void DeleteTask()
+        {
+            var editTask = new ToDoTask { Id = IdTask, Title = Title, Description = Description, Status = IsCompleted ? 1 : 0, IsActiveTask = 0 };
+
+            await _localDbService.DeleteTask(editTask);
 
             await Shell.Current.GoToAsync("..");
         }

@@ -14,9 +14,9 @@ namespace ToDoApp.Service
             _connection.CreateTableAsync<ToDoTask>();
         }
 
-        public async Task<List<ToDoTask>> GetTasksAsync()
+        public async Task<List<ToDoTask>> GetActiveTasksAsync()
         {
-            return await _connection.Table<ToDoTask>().ToListAsync();
+            return await _connection.Table<ToDoTask>().Where(task => task.IsActiveTask == 1).ToListAsync();
         }
 
         public async Task<ToDoTask> GetTaskById(int id)

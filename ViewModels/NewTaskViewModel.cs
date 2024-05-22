@@ -43,7 +43,7 @@ namespace ToDoApp.ViewModels
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Description))
                 return;
 
-            var newTask = new ToDoTask { Title = Title, Description = Description, Status = IsCompleted ? 1 : 0 };
+            var newTask = new ToDoTask { Title = Title, Description = Description, Status = IsCompleted ? 1 : 0, IsActiveTask = 1 };
 
             await _localDbService.CreateTask(newTask);
 

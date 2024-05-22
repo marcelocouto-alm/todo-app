@@ -13,10 +13,13 @@ namespace ToDoApp.Entities
         [Column("task_title")]
         public string Title { get; set; }
 
-        [Column("task_Description")]
+        [Column("task_description")]
         public string Description { get; set; }
 
         [Column("task_status")]
         public int Status { get; set; }
+
+        [Column("task_isActive")]
+        public int IsActiveTask { get; set; }
     }
 }

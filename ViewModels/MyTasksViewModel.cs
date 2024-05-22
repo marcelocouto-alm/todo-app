@@ -20,13 +20,11 @@ namespace ToDoApp.ViewModels
         public MyTasksViewModel(LocalDbService localDbService)
         {
             _localDbService = localDbService;
-
-            //GetTasksCommand = new Command(async () => await GetTasksAsync());
         }
 
         public async Task GetTasksAsync()
         {
-            var taskList = await _localDbService.GetTasksAsync();
+            var taskList = await _localDbService.GetActiveTasksAsync();
 
             if (taskList is not null)
                 Tasks = new ObservableCollection<ToDoTask>(taskList);
