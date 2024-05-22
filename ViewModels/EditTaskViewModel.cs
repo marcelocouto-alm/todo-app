@@ -77,7 +77,7 @@ namespace ToDoApp.ViewModels
             await Shell.Current.GoToAsync("..");
         }
 
-        private async void DeleteTask()
+        public async void DeleteTask()
         {
             var editTask = new ToDoTask { Id = IdTask, Title = Title, Description = Description, Status = IsCompleted ? 1 : 0, IsActiveTask = 0 };
 

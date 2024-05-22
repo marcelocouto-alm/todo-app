@@ -19,4 +19,20 @@ public partial class EditTaskPage : ContentPage
         base.OnAppearing();
         await ViewModel.GetTasksAsync();
     }
+
+    private void DeleteTask(object sender, EventArgs e)
+    {
+        ShowDeleteConfirmation();
+    }
+
+    private async void ShowDeleteConfirmation()
+    {
+        bool result = await DisplayAlert("Confirmação", "Tem certeza que deseja excluir esta tarefa?", "Sim", "Cancelar");
+
+        if (result)
+        {
+            ViewModel.DeleteTask();
+        }
+    }
+
 }
