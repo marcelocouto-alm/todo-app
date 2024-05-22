@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using ToDoApp.Service;
 using ToDoApp.View;
 using ToDoApp.ViewModels;
 
@@ -25,7 +26,10 @@ namespace ToDoApp
             InitializeComponent();
 
             Statics.Routing.RegisterRoute(typeof(MyTasksPage));
-            Statics.Routing.RegisterRoute(typeof (EditTaskPage));
+            Statics.Routing.RegisterRoute(typeof (NewTaskPage));
+            Statics.Routing.RegisterRoute(typeof(EditTaskPage));
+
+            //var taskService = new TaskService("todo_app.db");
 
             MainPage = new AppShell();
         }
@@ -36,6 +40,10 @@ namespace ToDoApp
 
             // ViewModels
             services.AddTransient<MyTasksViewModel>();
+            services.AddTransient<NewTaskViewModel>();
+
+            // SQLite
+            services.AddSingleton<LocalDbService>();
 
             return services.BuildServiceProvider();
         }

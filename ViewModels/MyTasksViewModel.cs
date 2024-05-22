@@ -7,7 +7,7 @@ namespace ToDoApp.ViewModels
     public partial class MyTasksViewModel : BaseViewModel
     {
         private ObservableCollection<ToDoTask> tasks = new ObservableCollection<ToDoTask>();
-        public ObservableCollection<ToDoTask> Tasks
+        public ObservableCollection<ToDoTask>? Tasks
         {
             get { return tasks; }
             set { SetProperty(ref this.tasks, value); }
@@ -15,21 +15,23 @@ namespace ToDoApp.ViewModels
 
         public Command GetTasksCommand { get; }
 
-        public MyTasksViewModel()
+        private readonly LocalDbService _localDbService;
+
+        public MyTasksViewModel(LocalDbService localDbService)
         {
+            _localDbService = localDbService;
+
             //GetTasksCommand = new Command(async () => await GetTasksAsync());
         }
 
         public async Task GetTasksAsync()
         {
-            var task1 = new ToDoTask { Title = "Task 1", Description = "Description1 Description 1Description 1Description1 Description 1Description 1Description 1Description 1", Status = 0 };
-            var task2 = new ToDoTask { Title = "Task 2", Description = "Description 2", Status = 1 };
-            var task4 = new ToDoTask { Title = "Task 4", Description = "Description 4", Status = 1 };
-            var task5 = new ToDoTask { Title = "Task 5", Description = "Description 5", Status = 1 };
-            var taskList = new List<ToDoTask> { task1, task2, task4, task5 };
+            var taskList = await _localDbService.GetTasksAsync();
 
-            Tasks = new ObservableCollection<ToDoTask>(taskList);
+            if (taskList is not null)
+                Tasks = new ObservableCollection<ToDoTask>(taskList);
+            else
+                Tasks = null;
         }
-
     }
 }

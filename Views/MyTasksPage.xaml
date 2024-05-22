@@ -26,11 +26,12 @@
                         <BindableLayout.EmptyViewTemplate>
                             <DataTemplate>
                                 <StackLayout
-                                Grid.Row="0">
+                                    Grid.Row="0">
                                     <Label 
-                                Text="sem tarefas cadastradas"
-                                HorizontalOptions="Center"
-                                HorizontalTextAlignment="Center"/>
+                                        Text="Não há tarefas cadastradas"
+                                        TextColor="{x:DynamicResource Black}"
+                                        HorizontalOptions="Center"
+                                        HorizontalTextAlignment="Center"/>
                                 </StackLayout>
                             </DataTemplate>
                         </BindableLayout.EmptyViewTemplate>
@@ -87,9 +88,9 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </VerticalStackLayout>
-
                     <Button
                         Text="Criar nova tarefa"
+                        Clicked="NewTask_Clicked"
                         Margin="0,20,0,0"/>
                 </VerticalStackLayout>
             </Grid>

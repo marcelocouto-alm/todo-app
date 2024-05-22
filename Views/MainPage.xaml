@@ -20,8 +20,9 @@
 
             <Button 
                 Grid.Row="1"
+                BackgroundColor="{x:DynamicResource White}"
                 Text="Acessar tarefas"
-                Clicked="MyTasks_Tapped"/>
+                Clicked="MyTasks_Clicked"/>
         </Grid>
     </StackLayout>
 </ContentPage>

@@ -18,4 +18,9 @@ public partial class MyTasksPage : ContentPage
 		base.OnAppearing();
 		await ViewModel.GetTasksAsync();
 	}
+
+    private async void NewTask_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(NewTaskPage));
+    }
 }

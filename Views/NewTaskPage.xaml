@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoApp.View.NewTaskPage"
+             Title="NewTaskPage">
+    <VerticalStackLayout>
+        <StackLayout Padding="20">
+            <Entry Placeholder="Título" Text="{Binding Title}" />
+            <Entry Placeholder="Descrição" Text="{Binding Description}" />
+            <Button Text="Salvar" Command="{Binding SaveCommand}" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>

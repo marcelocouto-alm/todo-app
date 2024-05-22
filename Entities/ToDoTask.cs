@@ -1,16 +1,22 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using System.Text.Json.Serialization;
+﻿using SQLite;
 
-namespace ToDoApp.Entities;
-
-public class ToDoTask
+namespace ToDoApp.Entities
 {
-    [JsonPropertyName("title")]
-    public string Title { get; set; }
+    [Table("tasks")]
+    public class ToDoTask
+    {
+        [PrimaryKey]
+        [AutoIncrement]
+        [Column("id")]
+        public int Id { get; set; }
 
-    [JsonPropertyName("description")]
-    public string Description { get; set; }
+        [Column("task_title")]
+        public string Title { get; set; }
 
-    [JsonPropertyName("status")]
-    public int Status { get; set; }
+        [Column("task_Description")]
+        public string Description { get; set; }
+
+        [Column("task_status")]
+        public int Status { get; set; }
+    }
 }
