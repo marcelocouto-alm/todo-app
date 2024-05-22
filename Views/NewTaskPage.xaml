@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Shell.BackgroundColor="{x:DynamicResource Primary}"
+             Shell.BackgroundColor="{x:DynamicResource Tertiary}"
+             Shell.ForegroundColor="{x:DynamicResource White}"
              x:Class="ToDoApp.View.NewTaskPage">
 
     <Shell.TitleView>
@@ -11,19 +12,20 @@
             HeightRequest="50">
             <Label Grid.Column="1"
                 Text="Criar Tarefa"
+                TextColor="{x:DynamicResource White}"
                 FontSize="18"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
                 Margin="{x:OnPlatform iOS='10,0,0,0', Default='0,0,0,0'}"/>
         </Grid>
     </Shell.TitleView>
-    
-    <VerticalStackLayout BackgroundColor="{x:DynamicResource Primary}" >
+
+    <VerticalStackLayout BackgroundColor="{x:DynamicResource Tertiary}" >
         <StackLayout Padding="20" Spacing="18">
             <Entry
                 Text="{Binding Title}"
                 TextColor="{x:DynamicResource Gray200}"
-                MaxLength="20"
+                MaxLength="30"
                 Placeholder="Título"
                 PlaceholderColor="{x:DynamicResource Gray200}"/>
             <Entry

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Shell.BackgroundColor="{x:DynamicResource Primary}"
+             Shell.BackgroundColor="{x:DynamicResource Tertiary}"
+             Shell.ForegroundColor="{x:DynamicResource White}"
              x:Class="ToDoApp.View.MyTasksPage">
     
     <Shell.TitleView>
@@ -11,6 +12,7 @@
             HeightRequest="50">
             <Label Grid.Column="1"
                 Text="Minhas tarefas"
+                TextColor="{x:DynamicResource White}"
                 FontSize="18"
                 HorizontalTextAlignment="Center"
                 VerticalTextAlignment="Center"
@@ -38,7 +40,7 @@
                     <BindableLayout.ItemTemplate>
                         <DataTemplate x:Name="TasksList">
                             <Grid VerticalOptions="Center" HeightRequest="160">
-                                <RoundRectangle CornerRadius="8" Stroke="{x:DynamicResource Primary}" />
+                                <RoundRectangle CornerRadius="8" Stroke="{x:DynamicResource Tertiary}" />
                                 <VerticalStackLayout Padding="16" Spacing="16">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -72,7 +74,7 @@
                                             <Label
                                                 Text="&#x270F;"
                                                 Style="{x:DynamicResource SubHeadline}"
-                                                TextColor="{x:DynamicResource Primary}"
+                                                TextColor="{x:DynamicResource Tertiary}"
                                                 Rotation="120">
                                                 <Label.GestureRecognizers>
                                                     <TapGestureRecognizer Tapped="EditTask_Clicked" CommandParameter="{Binding Id}"/>
