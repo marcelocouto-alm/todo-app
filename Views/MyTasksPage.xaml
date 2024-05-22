@@ -21,7 +21,7 @@
     </Shell.TitleView>
 
     <ScrollView VerticalScrollBarVisibility="Never">
-        <Grid Padding="10,20" RowDefinitions="auto, auto" HorizontalOptions="FillAndExpand" BackgroundColor="{x:DynamicResource White}">
+        <Grid Padding="10,20" RowDefinitions="auto, auto" HorizontalOptions="FillAndExpand" BackgroundColor="{x:DynamicResource Gray200}">
             <VerticalStackLayout>
                 <VerticalStackLayout Grid.Row="0" Spacing="16" BindableLayout.ItemsSource="{Binding Tasks}">
                     <BindableLayout.EmptyViewTemplate>

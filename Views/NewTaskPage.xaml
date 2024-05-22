@@ -20,34 +20,35 @@
         </Grid>
     </Shell.TitleView>
 
-    <VerticalStackLayout BackgroundColor="{x:DynamicResource Tertiary}" >
+    <VerticalStackLayout BackgroundColor="{x:DynamicResource Gray200}">
         <StackLayout Padding="20" Spacing="18">
             <Entry
                 Text="{Binding Title}"
-                TextColor="{x:DynamicResource Gray200}"
+                TextColor="{x:DynamicResource Tertiary}"
                 MaxLength="30"
                 Placeholder="Título"
-                PlaceholderColor="{x:DynamicResource Gray200}"/>
+                PlaceholderColor="{x:DynamicResource Tertiary}"/>
             <Entry
                 Text="{Binding Description}"
-                TextColor="{x:DynamicResource Gray200}"
+                TextColor="{x:DynamicResource Tertiary}"
                 MaxLength="60"
                 Placeholder="Descrição"
-                PlaceholderColor="{x:DynamicResource Gray200}"/>
+                PlaceholderColor="{x:DynamicResource Tertiary}"/>
 
             <HorizontalStackLayout>
                 <Label 
                     Text="Concluída"
-                    TextColor="{x:DynamicResource Gray200}"
+                    TextColor="{x:DynamicResource Tertiary}"
                     VerticalTextAlignment="Center"/>
                 <CheckBox
-                    IsChecked="{Binding IsCompleted}" />
+                    IsChecked="{Binding IsCompleted}"
+                    Color="{x:DynamicResource Tertiary}"/>
             </HorizontalStackLayout>
             
             <Button 
                 Text="Salvar" 
-                TextColor="{x:DynamicResource Black}"
-                BackgroundColor="{x:DynamicResource White}"
+                TextColor="{x:DynamicResource White}"
+                BackgroundColor="{x:DynamicResource Tertiary}"
                 Command="{Binding SaveCommand}" />
         </StackLayout>
     </VerticalStackLayout>
